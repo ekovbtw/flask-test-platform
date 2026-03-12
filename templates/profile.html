@@ -19,7 +19,16 @@
         <h3>{{ user.username }}</h3>
 
         <p class="text-muted">
-            Роль: <strong>{{ user.role }}</strong>
+            Роль:
+            <strong>
+                {% if user.role == "student" %}
+                    Студент
+                {% elif user.role == "teacher" %}
+                    Преподаватель
+                {% else %}
+                    {{ user.role }}
+                {% endif %}
+            </strong>
         </p>
 
     </div>
