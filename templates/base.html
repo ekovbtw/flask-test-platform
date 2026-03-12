@@ -11,52 +11,62 @@
 
 <body>
     <div class = "container"> 
-        <header class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-bottom">
+        <header class="border-bottom mb-4">
+            <nav class="navbar navbar-expand-lg">
 
-            <a href="/" class="d-flex align-items-center text-decoration-none">
-            <img class = "header__img" src = "{{url_for('static', filename = 'img/head.png')}}" alt = "law">
-        </a>
+            <div class="container">
 
-        <ul class="nav nav-pills">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img class="header__img" src="{{ url_for('static', filename='img/head.png') }}">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a href="{{ url_for('home' )}}" class="nav-link active">Главная страница</a>
+            <a class="nav-link" href="{{ url_for('home') }}">Главная</a>
             </li>
+
             <li class="nav-item">
-                <a href="{{ url_for('about')}}" class="nav-link">О нас</a>
+            <a class="nav-link" href="{{ url_for('about') }}">О нас</a>
             </li>
             </ul>
 
-           
             <div>
 
-                {% if session.get('user') %}
+            {% if session.get('user') %}
 
-                <a href="{{ url_for('profile') }}" class="me-3">
-                    <img 
-                        src="{{ url_for('static', filename='img/user_logo.png') }}" 
-                        width="40" 
-                        height="40"
-                        style="border-radius:50%; cursor:pointer;"
-                    >
-                </a>
+            <a href="{{ url_for('profile') }}">
+            <img src="{{ url_for('static', filename='img/user_logo.png') }}"
+            width="40"
+            style="border-radius:50%;">
+            </a>
 
-                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">
-                    Выход
-                </a>
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-danger ms-2">
+            Выход
+            </a>
 
-                {% else %}
+            {% else %}
 
-                <a href="{{ url_for('login') }}" class="btn btn-outline-primary me-2">Войти</a>
-                <a href="{{ url_for('sign_up') }}" class="btn btn-primary">Регистрация</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-primary me-2">Войти</a>
+            <a href="{{ url_for('sign_up') }}" class="btn btn-primary">Регистрация</a>
 
-                {% endif %}
+            {% endif %}
 
             </div>
 
+            </div>
+            </div>
+            </nav>
         </header>
     
         {% block body %}-{% endblock %}
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

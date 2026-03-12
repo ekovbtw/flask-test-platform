@@ -6,48 +6,52 @@
 
 {% block body %}
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5">
 
-        <h1 class="text-center mb-4">Регистрация</h1>
+            <h1 class="text-center mb-4">Регистрация</h1>
 
-        <form method="post">
+            <form method="post">
 
-            <div class="mb-3">
-                <label class="form-label">Логин</label>
-                <input type="text" name="username" class="form-control" placeholder="Введите логин" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Логин</label>
+                    <input type="text"
+                           name="username"
+                           class="form-control"
+                           placeholder="Введите логин"
+                           required>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Пароль</label>
-                <input type="password" name="password" class="form-control" placeholder="Введите пароль" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Пароль</label>
+                    <input type="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Введите пароль"
+                           required>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Подтвердите пароль</label>
-                <input type="password" name="password2" class="form-control" placeholder="Повторите пароль" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Роль</label>
+                    <select name="role" class="form-select">
+                        <option value="student">Студент</option>
+                        <option value="teacher">Преподаватель</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Выберите роль</label>
-                <select name="role" class="form-select">
-                    <option value="student">Студент</option>
-                    <option value="teacher">Преподаватель</option>
-                </select>
-            </div>
-
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-success w-100">
                     Зарегистрироваться
                 </button>
-            </div>
 
-        </form>
+            </form>
 
-        <p class="text-center mt-3">
-            Уже есть аккаунт? <a href="/login">Войти</a>
-        </p>
+            <p class="text-center mt-3">
+                Уже есть аккаунт?
+                <a href="{{ url_for('login') }}">Войти</a>
+            </p>
 
+        </div>
     </div>
 </div>
 

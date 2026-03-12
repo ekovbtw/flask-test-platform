@@ -13,12 +13,8 @@
 
         <img 
             src="{{ url_for('static', filename='img/user_logo.png') }}"
-            alt="avatar"
-            width="150"
-            height="150"
-            style="border-radius:50%;"
-            class="mb-3"
-        >
+            class="img-fluid rounded-circle"
+            style="max-width:150px;">
 
         <h3>{{ user.username }}</h3>
 

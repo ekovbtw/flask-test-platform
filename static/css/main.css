@@ -6,3 +6,7 @@ body {
     height: 100px;
     width: 150px;
 }
+img {
+    max-width: 100%;
+    height: auto;
+}
