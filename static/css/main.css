@@ -1,0 +1,8 @@
+body {
+    background-color: white;
+}
+/* HEADER */ 
+.header__img {
+    height: 100px;
+    width: 150px;
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Профиль
+{% endblock %}
+
+{% block body %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+
+        <h1 class="mb-4">Профиль пользователя</h1>
+
+        <img 
+            src="{{ url_for('static', filename='img/user_logo.png') }}"
+            alt="avatar"
+            width="150"
+            height="150"
+            style="border-radius:50%;"
+            class="mb-3"
+        >
+
+        <h3>{{ user.username }}</h3>
+
+        <p class="text-muted">
+            Роль: <strong>{{ user.role }}</strong>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

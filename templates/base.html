@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static', filename ='css/main.css') }}">
+    <title>{% block title %}-{% endblock %}</title>
+</head>
+
+<body>
+    <div class = "container"> 
+        <header class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-bottom">
+
+            <a href="/" class="d-flex align-items-center text-decoration-none">
+            <img class = "header__img" src = "{{url_for('static', filename = 'img/head.png')}}" alt = "law">
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="{{ url_for('home' )}}" class="nav-link active">Главная страница</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('about')}}" class="nav-link">О нас</a>
+            </li>
+            </ul>
+
+           
+            <div>
+
+                {% if session.get('user') %}
+
+                <a href="{{ url_for('profile') }}" class="me-3">
+                    <img 
+                        src="{{ url_for('static', filename='img/user_logo.png') }}" 
+                        width="40" 
+                        height="40"
+                        style="border-radius:50%; cursor:pointer;"
+                    >
+                </a>
+
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">
+                    Выход
+                </a>
+
+                {% else %}
+
+                <a href="{{ url_for('login') }}" class="btn btn-outline-primary me-2">Войти</a>
+                <a href="{{ url_for('sign_up') }}" class="btn btn-primary">Регистрация</a>
+
+                {% endif %}
+
+            </div>
+
+        </header>
+    
+        {% block body %}-{% endblock %}
+    </div>
+</body>
+
+</html>
